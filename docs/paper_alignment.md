@@ -14,7 +14,7 @@ The bundled `autocus demo` command is a deterministic execution smoke test. It v
 | --- | --- | --- | --- |
 | AutoCUS-ROI / FocusNet | `src/autocus/models/roi/focusnet.py` | `configs/paper/focusnet_roi.yaml` | Anchor-free ROI detector definition and checkpoint smoke-loading support. |
 | IQE-AAR / AARFormer | `src/autocus/models/iqe/aarformer.py` | `configs/paper/aarformer.yaml` | Annotation artifact removal network definition. |
-| IQE-NORM | `src/autocus/preprocessing/intensity.py` | `configs/paper/norm.yaml` | Deterministic foreground-aware normalization used for public smoke workflows. |
+| IQE-NORM | `src/autocus/preprocessing/norm.py` | `configs/paper/norm.yaml` | Traditional deterministic pipeline: foreground-aware percentile clipping, SRAD denoising, and CLAHE contrast enhancement. |
 | IQE-SR / CU-HAT | `src/autocus/models/iqe/cuhat.py` | `configs/paper/cuhat.yaml` | Super-resolution network definition. |
 | LARSNet for artery-region segmentation | `src/autocus/models/segmentation/larsnet.py` | `configs/paper/larsnet_long.yaml`, `configs/paper/larsnet_trans.yaml` | Shared architecture with long-axis and transverse-view configs. |
 | PlaqueNet | `src/autocus/models/segmentation/plaque_net.py` | `configs/paper/plaquenet.yaml` | Plaque segmentation network definition. |

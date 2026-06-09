@@ -65,6 +65,7 @@ def test_cli_help_and_demo_pipeline(tmp_path):
     assert result.exit_code == 0, result.output
     payload = json.loads((out_dir / 'pipeline_result.json').read_text())
     assert payload['images'][0]['plaque_presence_score'] >= 0.0
+    assert payload['images'][0]['iqe_outputs']['norm_method'] == 'iqe_norm_traditional'
     assert (out_dir / 'predictions.csv').exists()
 
 

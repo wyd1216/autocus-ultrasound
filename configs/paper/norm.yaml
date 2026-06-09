@@ -1,9 +1,18 @@
 task: deterministic_normalization
 normalization:
-  method: masked_robust_minmax
-  percentile_range: [0.5, 99.5]
-  output_range: [0.0, 1.0]
-  background_eps: 0.000001
+  method: iqe_norm_traditional
+  background_threshold: 0.0196078431372549
+  use_foreground_mask: true
+  mask_feather: 8
+  pclip_low: 0.5
+  pclip_high: 99.5
+  denoise_method: srad
+  srad_iter: 30
+  srad_dt: 0.05
+  srad_window: 3
+  clahe_clip: 1.5
+  clahe_tile_grid: 8
+  clahe_dynamic_grid: false
 data:
   manifest: examples/toy_manifest.json
 output:

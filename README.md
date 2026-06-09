@@ -51,7 +51,7 @@ The public repository supports code inspection, model instantiation, toy inferen
 ## Main Modules
 
 - ROI localization: FocusNet.
-- Image-quality enhancement: AARFormer, deterministic masked robust min-max normalization, CU-HAT.
+- Image-quality enhancement: AARFormer, traditional IQE-NORM, CU-HAT.
 - Anatomy and plaque inference: LARSNetV5 and PlaqueNetV1.
 - Plaque profiling: PlaqueSENet plus saliency helpers.
 
@@ -59,6 +59,7 @@ The public repository supports code inspection, model instantiation, toy inferen
 
 - `docs/quickstart.md`: reviewer-oriented install and demo walkthrough.
 - `docs/paper_alignment.md`: map from paper terminology to public code paths and configs.
+- `docs/iqe_norm.md`: traditional IQE-NORM algorithm notes.
 - `docs/reproducibility.md`: reproducibility levels and limits.
 - `docs/data_recipes.md`: public-data recipe notes.
 - `docs/privacy_and_limitations.md`: data, metadata, checkpoint, and clinical-use boundaries.

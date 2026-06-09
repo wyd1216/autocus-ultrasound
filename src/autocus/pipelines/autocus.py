@@ -7,7 +7,8 @@ from typing import Any
 
 import numpy as np
 
-from autocus.preprocessing.intensity import load_grayscale, robust_minmax, save_grayscale
+from autocus.preprocessing.intensity import load_grayscale, save_grayscale
+from autocus.preprocessing.norm import IQENormConfig, apply_iqe_norm
 from autocus.preprocessing.roi import crop_box, foreground_bbox
 
 
@@ -20,6 +21,11 @@ def iter_images(input_path: Path) -> list[Path]:
     return sorted(p for p in input_path.iterdir() if p.suffix.lower() in IMAGE_SUFFIXES)
 
 
+def norm_config_from_public_config(config: dict[str, Any]) -> IQENormConfig:
+    payload = config.get("normalization", {})
+    return IQENormConfig.from_mapping(payload)
+
+
 def run_pipeline(config: dict[str, Any], input_path: str | Path, output_dir: str | Path, device: str = "cpu") -> dict[str, Any]:
     """Run a deterministic public demo pipeline with optional model hooks."""
     in_path = Path(input_path)
@@ -29,11 +35,12 @@ def run_pipeline(config: dict[str, Any], input_path: str | Path, output_dir: str
     stage_dir.mkdir(exist_ok=True)
     rows: list[dict[str, Any]] = []
     results: list[dict[str, Any]] = []
+    norm_config = norm_config_from_public_config(config)
     for image_path in iter_images(in_path):
         image = load_grayscale(image_path)
         roi_box = foreground_bbox(image)
         roi = crop_box(image, roi_box)
-        normalized = robust_minmax(roi)
+        normalized = apply_iqe_norm(roi, norm_config)
         threshold = float(config.get("pipeline", {}).get("plaque_threshold", 0.62))
         mask = normalized > threshold
         plaque_presence_score = float(mask.mean())
@@ -49,7 +56,11 @@ def run_pipeline(config: dict[str, Any], input_path: str | Path, output_dir: str
         item = {
             "input": str(image_path),
             "roi_box_xyxy": roi_box,
-            "iqe_outputs": {"norm": str(norm_path)},
+            "iqe_outputs": {
+                "norm": str(norm_path),
+                "norm_method": norm_config.method,
+                "norm_stages": ["percentile_clip", norm_config.denoise_method, "clahe"],
+            },
             "artery_mask": str(artery_path),
             "plaque_mask": str(mask_path),
             "plaque_presence_score": plaque_presence_score,

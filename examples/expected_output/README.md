@@ -2,7 +2,7 @@
 
 Running `uv run autocus demo --output outputs/demo --device cpu` writes:
 
-- `pipeline_result.json`: one entry per input image with ROI box, stage output paths, plaque score, unstable probability, label, device, and configured model-version paths.
+- `pipeline_result.json`: one entry per input image with ROI box, IQE-NORM method/stages and output paths, plaque score, unstable probability, label, device, and configured model-version paths.
 - `predictions.csv`: one row per image with plaque score, unstable probability, and label.
 - `metrics.json`: lightweight demo metadata, currently the number of processed images.
 - `stage_outputs/*_iqe_norm.png`: deterministic normalized ROI.
