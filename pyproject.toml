@@ -24,6 +24,11 @@ dependencies = [
 interpretability = ["grad-cam>=1.5"]
 dev = ["pytest>=8", "ruff>=0.6"]
 
+[project.urls]
+Homepage = "https://github.com/wyd1216/autocus-ultrasound"
+Repository = "https://github.com/wyd1216/autocus-ultrasound"
+Issues = "https://github.com/wyd1216/autocus-ultrasound/issues"
+
 [project.scripts]
 autocus = "autocus.cli:app"
 

@@ -1,5 +1,7 @@
 # AutoCUS Ultrasound
 
+[![CI](https://github.com/wyd1216/autocus-ultrasound/actions/workflows/ci.yml/badge.svg)](https://github.com/wyd1216/autocus-ultrasound/actions/workflows/ci.yml)
+
 Public research framework for quality-gated carotid-ultrasound plaque profiling.
 
 This repository is a paper-facing extraction of the AutoCUS research code. It contains model definitions, sanitized configuration templates, toy inputs, public-data recipes, inference utilities, and training/evaluation scaffolds. It is not a medical device and is not intended for clinical diagnosis.
@@ -52,6 +54,15 @@ The public repository supports code inspection, model instantiation, toy inferen
 - Image-quality enhancement: AARFormer, deterministic masked robust min-max normalization, CU-HAT.
 - Anatomy and plaque inference: LARSNetV5 and PlaqueNetV1.
 - Plaque profiling: PlaqueSENet plus saliency helpers.
+
+## Documentation
+
+- `docs/quickstart.md`: reviewer-oriented install and demo walkthrough.
+- `docs/paper_alignment.md`: map from paper terminology to public code paths and configs.
+- `docs/reproducibility.md`: reproducibility levels and limits.
+- `docs/data_recipes.md`: public-data recipe notes.
+- `docs/privacy_and_limitations.md`: data, metadata, checkpoint, and clinical-use boundaries.
+- `docs/release_checklist.md`: checks to run before tagging a public release.
 
 ## Release Checks
 
