@@ -68,6 +68,19 @@ def test_cli_help_and_demo_pipeline(tmp_path):
     assert (out_dir / 'predictions.csv').exists()
 
 
+def test_cli_demo_command_writes_expected_artifacts(tmp_path):
+    out_dir = tmp_path / 'demo'
+    result = CliRunner().invoke(app, ['demo', '--output', str(out_dir), '--device', 'cpu'])
+
+    assert result.exit_code == 0, result.output
+    assert (out_dir / 'pipeline_result.json').exists()
+    assert (out_dir / 'predictions.csv').exists()
+    assert (out_dir / 'metrics.json').exists()
+    assert (out_dir / 'stage_outputs' / 'demo_ultrasound_iqe_norm.png').exists()
+    assert (out_dir / 'stage_outputs' / 'demo_ultrasound_artery_mask.png').exists()
+    assert (out_dir / 'stage_outputs' / 'demo_ultrasound_plaque_mask.png').exists()
+
+
 def test_config_loader_and_programmatic_pipeline(tmp_path):
     cfg = load_config(Path('configs/paper/autocus_pipeline.yaml'))
     result = run_pipeline(cfg, Path('examples/sample_input'), tmp_path, device='cpu')

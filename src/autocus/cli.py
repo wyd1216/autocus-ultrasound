@@ -77,6 +77,17 @@ def infer(
     console.print({"output": str(output), "num_images": len(payload["images"])})
 
 
+@app.command()
+def demo(
+    output: Path = typer.Option(Path("outputs/demo")),
+    device: str = typer.Option("cpu"),
+) -> None:
+    """Run the bundled CPU demo with the paper pipeline config and sample input."""
+    cfg = load_config(Path("configs/paper/autocus_pipeline.yaml"))
+    payload = run_pipeline(cfg, Path("examples/sample_input"), output, device=device)
+    console.print({"output": str(output), "num_images": len(payload["images"])})
+
+
 @data_app.command("build-manifest")
 def build_manifest(
     recipe: Path = typer.Option(..., exists=True),

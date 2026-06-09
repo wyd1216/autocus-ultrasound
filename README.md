@@ -13,11 +13,21 @@ uv run autocus --help
 
 ## Demo
 
+Run the bundled CPU demo:
+
+```bash
+uv run autocus demo --output outputs/demo --device cpu
+```
+
+The equivalent explicit pipeline command is:
+
 ```bash
 uv run autocus infer       --config configs/paper/autocus_pipeline.yaml       --input examples/sample_input       --output outputs/demo       --device cpu
 ```
 
 Outputs include `pipeline_result.json`, `predictions.csv`, `metrics.json`, and stage images under `stage_outputs/`.
+
+See `docs/quickstart.md` for a reviewer-oriented walkthrough.
 
 ## Optional Checkpoint Smoke Test
 
