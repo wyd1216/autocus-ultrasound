@@ -1,0 +1,10 @@
+task: deterministic_normalization
+normalization:
+  method: masked_robust_minmax
+  percentile_range: [0.5, 99.5]
+  output_range: [0.0, 1.0]
+  background_eps: 0.000001
+data:
+  manifest: examples/toy_manifest.json
+output:
+  root_dir: outputs/norm

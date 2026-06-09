@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+*.egg-info/
+
+# Runtime outputs
+outputs/
+weights/*.pt
+weights/*.pth
+weights/*.ckpt
+
+# OS/editor
+.DS_Store

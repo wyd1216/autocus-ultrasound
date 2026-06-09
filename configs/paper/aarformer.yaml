@@ -1,0 +1,22 @@
+task: artifact_removal
+model:
+  name: aarformer
+  spatial_dims: 2
+  in_channels: 1
+  out_channels: 1
+  embed_dims: [48, 96, 192, 384]
+  depths: [2, 2, 6, 2]
+  decoder_depths: [2, 2, 2]
+  bottleneck_depth: 2
+  num_heads: 8
+train:
+  max_epochs: 200
+  batch_size: 8
+optimizer:
+  type: adamw
+  lr: 0.0001
+  weight_decay: 0.01
+data:
+  manifest: examples/toy_manifest.json
+output:
+  root_dir: outputs/aarformer

@@ -1,0 +1,23 @@
+task: super_resolution
+model:
+  name: cuhat
+  spatial_dims: 2
+  in_channels: 1
+  out_channels: 1
+  embed_dim: 120
+  num_groups: 4
+  num_blocks_per_group: 4
+  num_heads: 6
+  use_ocab: true
+  use_ssb: true
+train:
+  max_epochs: 250
+  batch_size: 12
+optimizer:
+  type: adamw
+  lr: 0.0001
+  weight_decay: 0.00001
+data:
+  manifest: examples/toy_manifest.json
+output:
+  root_dir: outputs/cuhat

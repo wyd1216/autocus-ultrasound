@@ -1,0 +1,17 @@
+pipeline:
+  roi: focusnet
+  iqe_stages: [aar, norm, sr]
+  artery_segmentation: larsnet_v5
+  plaque_segmentation: plaque_net_v1
+  plaque_classification: plaque_senet
+  plaque_threshold: 0.62
+weights:
+  focusnet: weights/autocus_focusnet_roi_v1.pth
+  aarformer: weights/autocus_aarformer_v1.pth
+  cuhat: weights/autocus_cuhat_v1.pth
+  larsnet_long: weights/autocus_larsnet_long_v1.pth
+  larsnet_trans: weights/autocus_larsnet_trans_v1.pth
+  plaquenet: weights/autocus_plaquenet_v1.pth
+  plaquesenet: weights/autocus_plaquesenet_ensemble_v1.json
+output:
+  root_dir: outputs/demo

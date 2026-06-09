@@ -1,0 +1,22 @@
+task: plaque_segmentation
+model:
+  name: plaque_net_v1
+  spatial_dims: 2
+  in_channels: 1
+  out_channels: 2
+  backbone: efficientnet-b3
+  pretrained: false
+  ppg_hidden: 256
+  ppg_dropout: 0.2
+  gate_at_inference: true
+train:
+  max_epochs: 300
+  batch_size: 6
+optimizer:
+  type: adamw
+  lr: 0.0003
+  weight_decay: 0.00001
+data:
+  manifest: examples/toy_manifest.json
+output:
+  root_dir: outputs/plaquenet

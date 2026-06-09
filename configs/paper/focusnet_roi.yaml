@@ -1,0 +1,19 @@
+task: roi_detection
+model:
+  name: focusnet
+  spatial_dims: 2
+  in_channels: 1
+  num_classes: 1
+  pretrained_backbone: false
+  fusion_channels: 128
+train:
+  max_epochs: 200
+  batch_size: 8
+optimizer:
+  type: adamw
+  lr: 0.0003
+  weight_decay: 0.0001
+data:
+  manifest: examples/toy_manifest.json
+output:
+  root_dir: outputs/focusnet_roi
