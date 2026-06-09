@@ -1,12 +1,68 @@
 {
   "schema_version": "1.0",
   "weights": [
-    {"module": "focusnet", "filename": "autocus_focusnet_roi_v1.pth", "url": "https://example.org/autocus/focusnet", "sha256": "PENDING", "version": "paper-v1"},
-    {"module": "aarformer", "filename": "autocus_aarformer_v1.pth", "url": "https://example.org/autocus/aarformer", "sha256": "PENDING", "version": "paper-v1"},
-    {"module": "cuhat", "filename": "autocus_cuhat_v1.pth", "url": "https://example.org/autocus/cuhat", "sha256": "PENDING", "version": "paper-v1"},
-    {"module": "larsnet_long", "filename": "autocus_larsnet_long_v1.pth", "url": "https://example.org/autocus/larsnet-long", "sha256": "PENDING", "version": "paper-v1"},
-    {"module": "larsnet_trans", "filename": "autocus_larsnet_trans_v1.pth", "url": "https://example.org/autocus/larsnet-trans", "sha256": "PENDING", "version": "paper-v1"},
-    {"module": "plaquenet", "filename": "autocus_plaquenet_v1.pth", "url": "https://example.org/autocus/plaquenet", "sha256": "PENDING", "version": "paper-v1"},
-    {"module": "plaquesenet", "filename": "autocus_plaquesenet_ensemble_v1.json", "url": "https://example.org/autocus/plaquesenet", "sha256": "PENDING", "version": "paper-v1"}
+    {
+      "module": "focusnet",
+      "filename": "autocus_focusnet_roi_v1.pth",
+      "version": "paper-v1",
+      "release_status": "not_released",
+      "url": null,
+      "sha256": null,
+      "note": "Paper checkpoint is optional and is not released with the public code repository."
+    },
+    {
+      "module": "aarformer",
+      "filename": "autocus_aarformer_v1.pth",
+      "version": "paper-v1",
+      "release_status": "not_released",
+      "url": null,
+      "sha256": null,
+      "note": "Paper checkpoint is optional and is not released with the public code repository."
+    },
+    {
+      "module": "cuhat",
+      "filename": "autocus_cuhat_v1.pth",
+      "version": "paper-v1",
+      "release_status": "not_released",
+      "url": null,
+      "sha256": null,
+      "note": "Paper checkpoint is optional and is not released with the public code repository."
+    },
+    {
+      "module": "larsnet_long",
+      "filename": "autocus_larsnet_long_v1.pth",
+      "version": "paper-v1",
+      "release_status": "not_released",
+      "url": null,
+      "sha256": null,
+      "note": "Paper checkpoint is optional and is not released with the public code repository."
+    },
+    {
+      "module": "larsnet_trans",
+      "filename": "autocus_larsnet_trans_v1.pth",
+      "version": "paper-v1",
+      "release_status": "not_released",
+      "url": null,
+      "sha256": null,
+      "note": "Paper checkpoint is optional and is not released with the public code repository."
+    },
+    {
+      "module": "plaquenet",
+      "filename": "autocus_plaquenet_v1.pth",
+      "version": "paper-v1",
+      "release_status": "not_released",
+      "url": null,
+      "sha256": null,
+      "note": "Paper checkpoint is optional and is not released with the public code repository."
+    },
+    {
+      "module": "plaquesenet",
+      "filename": "autocus_plaquesenet_ensemble_v1.json",
+      "version": "paper-v1",
+      "release_status": "not_released",
+      "url": null,
+      "sha256": null,
+      "note": "Paper checkpoint is optional and is not released with the public code repository."
+    }
   ]
 }

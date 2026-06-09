@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 from urllib.request import urlretrieve
 
+UNRELEASED_STATUSES = {"not_released", "not-released", "optional"}
+
 
 def load_registry(path: str | Path = "weights/registry.json") -> dict:
     return json.loads(Path(path).read_text(encoding="utf-8"))
@@ -18,6 +20,11 @@ def sha256_file(path: str | Path) -> str:
     return h.hexdigest()
 
 
+def is_unreleased_weight(item: dict) -> bool:
+    status = str(item.get("release_status", "")).lower()
+    return status in UNRELEASED_STATUSES
+
+
 def download_registered_weights(registry_path: str | Path = "weights/registry.json", output_dir: str | Path = "weights") -> list[Path]:
     registry = load_registry(registry_path)
     out = Path(output_dir)
@@ -26,7 +33,7 @@ def download_registered_weights(registry_path: str | Path = "weights/registry.js
     for item in registry.get("weights", []):
         url = item.get("url")
         filename = item.get("filename")
-        if not url or url.startswith("https://example.org/"):
+        if is_unreleased_weight(item) or not url or url.startswith("https://example.org/"):
             continue
         target = out / filename
         urlretrieve(url, target)
@@ -42,7 +49,7 @@ def verify_registered_weights(registry_path: str | Path = "weights/registry.json
         expected = item.get("sha256", "")
         path = Path(weight_dir) / filename
         if not path.exists():
-            statuses[filename] = "missing"
+            statuses[filename] = "not-released" if is_unreleased_weight(item) else "missing"
         elif expected and expected != "PENDING" and sha256_file(path) != expected:
             statuses[filename] = "sha256-mismatch"
         else:

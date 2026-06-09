@@ -73,6 +73,13 @@ def test_weight_registry_reports_checksum_status(tmp_path):
     assert verify_registered_weights(registry, weight_dir) == {"demo.bin": "sha256-mismatch"}
 
 
+def test_default_weight_registry_treats_unreleased_weights_as_optional():
+    statuses = verify_registered_weights("weights/registry.json", "weights")
+
+    assert statuses
+    assert set(statuses.values()) == {"not-released"}
+
+
 def test_cli_model_smoke_loads_checkpoint(tmp_path):
     cfg = tmp_path / "focusnet.yaml"
     cfg.write_text(
