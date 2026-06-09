@@ -6,6 +6,7 @@ from pathlib import Path
 import typer
 from rich.console import Console
 
+from autocus.checkpoints import load_model_from_config
 from autocus.config import load_config
 from autocus.data.manifest import write_manifest
 from autocus.engine.evaluate import evaluate_from_manifest
@@ -22,6 +23,24 @@ app.add_typer(data_app, name="data")
 app.add_typer(weights_app, name="weights")
 app.add_typer(paper_app, name="paper")
 console = Console()
+
+
+@app.command("model-smoke")
+def model_smoke(
+    config: Path = typer.Option(..., exists=True),
+    checkpoint: Path | None = typer.Option(None, exists=True),
+    device: str = typer.Option("cpu"),
+    strict: bool = typer.Option(True),
+) -> None:
+    """Instantiate a model config and optionally load a checkpoint."""
+    loaded = load_model_from_config(config, checkpoint=checkpoint, device=device, strict=strict)
+    console.print({
+        "model": loaded.model.__class__.__name__,
+        "checkpoint": str(loaded.checkpoint) if loaded.checkpoint else None,
+        "missing_keys": loaded.missing_keys,
+        "unexpected_keys": loaded.unexpected_keys,
+        "metadata": loaded.metadata,
+    })
 
 
 @app.command()
