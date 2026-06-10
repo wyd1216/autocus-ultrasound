@@ -4,8 +4,8 @@
       "image": "sample_input/demo_ultrasound.png",
       "bbox": [16, 16, 112, 112],
       "label": 1,
-      "source": "toy",
-      "case_id": "toy_case_001"
+      "source": "example",
+      "case_id": "example_case_001"
     }
   ]
 }

@@ -1,12 +1,12 @@
 # Weights
 
-The public code repository does not require paper checkpoints. The default `weights/registry.json` records the expected filenames for paper-era checkpoints, but marks them as `not_released`.
+The public code repository does not require paper checkpoints. The default `weights/registry.json` records the expected checkpoint filenames, but marks them as `not_released`.
 
-This keeps the code release simple while preserving a clear place to document approved local or future checkpoint releases. The Apache-2.0 code license does not automatically apply to model weights.
+This preserves a clear place to document approved local or future checkpoint releases. The Apache-2.0 code license does not automatically apply to model weights.
 
 ## Registry Workflow
 
-For the current paper-facing repository:
+For the current public release:
 
 1. Leave paper checkpoints out of Git.
 2. Run `uv run autocus weights verify` to inspect the registry. Unreleased entries should report `not-released`.

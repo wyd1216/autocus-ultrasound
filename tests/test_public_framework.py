@@ -20,7 +20,7 @@ def test_paper_configs_have_no_private_paths():
 
 
 def test_manifest_schema_accepts_relative_entries():
-    manifest = load_manifest(Path('examples/toy_manifest.json'))
+    manifest = load_manifest(Path('examples/example_manifest.json'))
     assert 'test' in manifest.splits
     assert manifest.splits['test'][0].image == 'sample_input/demo_ultrasound.png'
 

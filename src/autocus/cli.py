@@ -91,7 +91,7 @@ def demo(
 @data_app.command("build-manifest")
 def build_manifest(
     recipe: Path = typer.Option(..., exists=True),
-    output: Path = typer.Option(Path("examples/toy_manifest.json")),
+    output: Path = typer.Option(Path("examples/example_manifest.json")),
 ) -> None:
     """Build a minimal manifest from a JSON recipe."""
     payload = json.loads(recipe.read_text(encoding="utf-8"))

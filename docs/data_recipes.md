@@ -1,6 +1,6 @@
 # Public Data Recipes
 
-The framework does not redistribute private clinical data. Use the recipes below to prepare public or self-owned data into the manifest schema in `examples/toy_manifest.json`.
+The framework does not redistribute private clinical data. Use the recipes below to prepare public or self-owned data into the manifest schema in `examples/example_manifest.json`.
 
 Recommended public sources to review before use:
 

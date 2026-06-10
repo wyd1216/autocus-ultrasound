@@ -1,8 +1,8 @@
-# aarformer Model Card
+# AARFormer Model Card
 
 ## Intended Use
 
-Research reproduction for the AutoCUS carotid-ultrasound paper workflow.
+Research reproduction for the AutoCUS carotid-ultrasound workflow.
 
 ## Inputs
 
@@ -14,8 +14,8 @@ Module-specific tensors or structured pipeline outputs documented in the README.
 
 ## Weights
 
-Frozen paper weights are tracked through `weights/registry.json` and hosted outside Git.
+Paper checkpoints are tracked through `weights/registry.json` and are not released by default.
 
 ## Limitations
 
-Not intended for clinical diagnosis. Performance depends on acquisition domain, preprocessing, and validation cohort.
+Not intended for clinical use. Performance depends on acquisition domain, preprocessing, and validation cohort.

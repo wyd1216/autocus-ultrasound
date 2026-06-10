@@ -17,6 +17,6 @@ optimizer:
   lr: 0.0003
   weight_decay: 0.00001
 data:
-  manifest: examples/toy_manifest.json
+  manifest: examples/example_manifest.json
 output:
   root_dir: outputs/plaquenet

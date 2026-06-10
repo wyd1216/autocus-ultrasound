@@ -10,7 +10,7 @@ The implementation is in `src/autocus/preprocessing/norm.py`.
 
 1. Foreground detection identifies the ultrasound acquisition window by trimming contiguous near-black outer bands. This avoids treating dark in-frame anatomy as background.
 2. Foreground-aware percentile clipping rescales tissue intensities using `pclip_low` and `pclip_high`.
-3. SRAD denoising suppresses speckle while preserving local structure. A guided-filter fallback is available for fast smoke workflows, but the paper config uses SRAD.
+3. SRAD denoising suppresses speckle while preserving local structure. A guided-filter fallback is available for fast validation workflows, but the paper config uses SRAD.
 4. CLAHE enhances local contrast with conservative clipping and foreground-aware background filling.
 5. Optional boundary feathering blends the processed foreground into the original near the detected acquisition-window edge.
 

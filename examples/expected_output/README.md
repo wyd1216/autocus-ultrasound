@@ -9,4 +9,4 @@ Running `uv run autocus demo --output outputs/demo --device cpu` writes:
 - `stage_outputs/*_artery_mask.png`: deterministic foreground-style artery mask.
 - `stage_outputs/*_plaque_mask.png`: deterministic threshold-based plaque mask.
 
-Numeric values can vary slightly by dependency versions because the toy pipeline uses image statistics. The expected stable contract is the file set and JSON/CSV field names, not paper-level clinical performance.
+Numeric values can vary slightly by dependency versions because the example pipeline uses image statistics. The stable contract is the file set and JSON/CSV field names, not paper-level clinical performance.

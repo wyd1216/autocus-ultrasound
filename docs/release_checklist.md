@@ -1,6 +1,6 @@
 # Release Checklist
 
-Use this checklist before tagging a public paper-facing release.
+Use this checklist before tagging a public research-code release.
 
 ## Local Checks
 
@@ -24,7 +24,7 @@ not-released
 - `README.md` includes install, demo, reproducibility scope, and documentation links.
 - `CITATION.cff` points to the GitHub repository.
 - `pyproject.toml` includes `Homepage`, `Repository`, and `Issues` URLs.
-- `.github/workflows/ci.yml` runs lint, tests, release audit, and the demo smoke test.
+- `.github/workflows/ci.yml` runs lint, tests, release audit, and the demo check.
 - `docs/paper_alignment.md` maps paper terminology to code paths and configs.
 - `docs/privacy_and_limitations.md` states that private clinical data, linked metadata, and paper checkpoints are excluded.
 

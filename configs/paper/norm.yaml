@@ -14,6 +14,6 @@ normalization:
   clahe_tile_grid: 8
   clahe_dynamic_grid: false
 data:
-  manifest: examples/toy_manifest.json
+  manifest: examples/example_manifest.json
 output:
   root_dir: outputs/norm

@@ -1,6 +1,6 @@
 # Quickstart
 
-This guide exercises the public repository without private data or paper checkpoints.
+This guide verifies the public repository without private data or paper checkpoints.
 
 ## 1. Install
 
@@ -34,7 +34,7 @@ It writes:
 uv run autocus weights verify
 ```
 
-The default paper checkpoint entries are expected to report `not-released`. The demo does not require these checkpoints.
+The default paper checkpoint entries should report `not-released`. The demo does not require these checkpoints.
 
 ## 4. Run Validation Checks
 
